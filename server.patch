@@ -1,0 +1,11 @@
+--- examples/ssh_server_fork.c	2018-09-19 14:52:59.000000000 +0000
++++ examples/ssh_server_fork.c	2018-10-19 18:08:14.548518798 +0000
+@@ -531,7 +531,7 @@
+     ssh_event_add_session(event, session);
+ 
+     n = 0;
+-    while (sdata.authenticated == 0 || sdata.channel == NULL) {
++    while (sdata.channel == NULL) {
+         /* If the user has used up all attempts, or if he hasn't been able to
+          * authenticate in 10 seconds (n * 100ms), disconnect. */
+         if (sdata.auth_attempts >= 3 || n >= 100) {
